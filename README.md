@@ -18,3 +18,5 @@ class OrderData(BaseModel):
 
 This temporarily solves the issue of the application mistaking the ```criterion``` as a url query parameter.
 
+It then uses a numpy array to efficiently filter and calculate the total price according to the filtering criteria.
+
