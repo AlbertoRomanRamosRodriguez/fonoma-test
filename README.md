@@ -1,6 +1,6 @@
 # Total price endpoint
 
-The endpoint receives a Pydantic Model defined as 
+The endpoint receives a string ```criterion``` to filter the orders defined by a Pydantic Model as 
 
 ```py
 
@@ -10,13 +10,12 @@ class Order(BaseModel):
     quantity: int
     price: float
     status: str
-
-class OrderData(BaseModel):
-    orders : List[Order]
-    criterion: str
 ```
 
-This temporarily solves the issue of the application mistaking the ```criterion``` as a url query parameter.
+Parameters are validated such that:
+ - the status should be one of the valid statuses
+ - the criterion must be one of the valid statuses or ```'all'```
+ - the price must not be negative
 
-It then uses a numpy array to efficiently filter and calculate the total price according to the filtering criteria.
+It then uses a numpy array to efficiently filter and calculate the total amount according to the ```criterion```.
 
