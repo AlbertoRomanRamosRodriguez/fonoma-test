@@ -1,0 +1,121 @@
+{
+    "test_completed": {
+        "params": {
+            "orders": [
+                {"id": 1, "item": "Computer", "quantity": 2, "price": 999.99, "status": "completed"},
+                {"id": 2, "item": "Printer", "quantity": 1, "price": 149.99, "status": "pending"},
+                {"id": 3, "item": "Monitor", "quantity": 3, "price": 249.99, "status": "completed"},
+                {"id": 4, "item": "Keyboard", "quantity": 5, "price": 49.99, "status": "completed"},
+                {"id": 5, "item": "Mouse", "quantity": 4, "price": 19.99, "status": "pending"},
+                {"id": 6, "item": "Laptop", "quantity": 2, "price": 799.99, "status": "canceled"},
+                {"id": 7, "item": "Router", "quantity": 1, "price": 79.99, "status": "pending"},
+                {"id": 8, "item": "External Hard Drive", "quantity": 2, "price": 129.99, "status": "canceled"},
+                {"id": 9, "item": "Graphics Card", "quantity": 1, "price": 499.99, "status": "completed"},
+                {"id": 10, "item": "Headphones", "quantity": 3, "price": 59.99, "status": "pending"}
+            ],
+            "criterion": "completed"
+        },
+        "expected_result": 3499.89
+    },
+    "test_pending": {
+        "params":{
+            "orders": [{"id": 1, "item": "Computer", "quantity": 2, "price": 999.99, "status": "completed"},
+            {"id": 2, "item": "Printer", "quantity": 1, "price": 149.99, "status": "pending"},
+            {"id": 3, "item": "Monitor", "quantity": 3, "price": 249.99, "status": "completed"},
+            {"id": 4, "item": "Keyboard", "quantity": 5, "price": 49.99, "status": "completed"},
+            {"id": 5, "item": "Mouse", "quantity": 4, "price": 19.99, "status": "pending"},
+            {"id": 6, "item": "Laptop", "quantity": 2, "price": 799.99, "status": "canceled"},
+            {"id": 7, "item": "Router", "quantity": 1, "price": 79.99, "status": "pending"},
+            {"id": 8, "item": "External Hard Drive", "quantity": 2, "price": 129.99, "status": "canceled"},
+            {"id": 9, "item": "Graphics Card", "quantity": 1, "price": 499.99, "status": "completed"},
+            {"id": 10, "item": "Headphones", "quantity": 3, "price": 59.99, "status": "pending"}
+        ],
+            "criterion": "pending"
+        },
+        "expected_result": 489.91
+    },
+    "test_invalid_status": {
+        "params":{
+            "orders": [
+                {"id": 1, "item": "Computer", "quantity": 2, "price": 999.99, "status": "completed"},
+                {"id": 2, "item": "Printer", "quantity": 1, "price": 149.99, "status": "pending"},
+                {"id": 3, "item": "Monitor", "quantity": 3, "price": 249.99, "status": "completed"},
+                {"id": 4, "item": "Keyboard", "quantity": 5, "price": 49.99, "status": "completed"},
+                {"id": 5, "item": "Mouse", "quantity": 4, "price": 19.99, "status": "received"},
+                {"id": 6, "item": "Laptop", "quantity": 2, "price": 799.99, "status": "canceled"},
+                {"id": 7, "item": "Router", "quantity": 1, "price": 79.99, "status": "pending"},
+                {"id": 8, "item": "External Hard Drive", "quantity": 2, "price": 129.99, "status": "canceled"},
+                {"id": 9, "item": "Graphics Card", "quantity": 1, "price": 499.99, "status": "completed"},
+                {"id": 10, "item": "Headphones", "quantity": 3, "price": 59.99, "status": "pending"}
+            ],
+            "criterion": "completed"
+        },
+        "expected_result": -1
+    },
+    "test_negative": {
+        "params":{
+            "orders": [
+                {"id": 1, "item": "Computer", "quantity": 2, "price": -999.99, "status": "completed"},
+                {"id": 2, "item": "Printer", "quantity": 1, "price": -149.99, "status": "pending"},
+                {"id": 3, "item": "Monitor", "quantity": 3, "price": -249.99, "status": "completed"},
+                {"id": 4, "item": "Keyboard", "quantity": 5, "price": 49.99, "status": "completed"},
+                {"id": 5, "item": "Mouse", "quantity": 4, "price": 19.99, "status": "received"},
+                {"id": 6, "item": "Laptop", "quantity": 2, "price": 799.99, "status": "canceled"},
+                {"id": 7, "item": "Router", "quantity": 1, "price": 79.99, "status": "pending"},
+                {"id": 8, "item": "External Hard Drive", "quantity": 2, "price": 129.99, "status": "canceled"},
+                {"id": 9, "item": "Graphics Card", "quantity": 1, "price": 499.99, "status": "completed"},
+                {"id": 10, "item": "Headphones", "quantity": 3, "price": 59.99, "status": "pending"}
+            ],
+            "criterion": "completed"
+        },
+        "expected_result": -1
+    },
+    "test_invalid_criterion": {
+        "params":{
+            "orders": [
+                {"id": 1, "item": "Computer", "quantity": 2, "price": 999.99, "status": "completed"},
+                {"id": 2, "item": "Printer", "quantity": 1, "price": 149.99, "status": "pending"},
+                {"id": 3, "item": "Monitor", "quantity": 3, "price": 249.99, "status": "completed"},
+                {"id": 4, "item": "Keyboard", "quantity": 5, "price": 49.99, "status": "completed"},
+                {"id": 5, "item": "Mouse", "quantity": 4, "price": 19.99, "status": "received"},
+                {"id": 6, "item": "Laptop", "quantity": 2, "price": 799.99, "status": "canceled"},
+                {"id": 7, "item": "Router", "quantity": 1, "price": 79.99, "status": "pending"},
+                {"id": 8, "item": "External Hard Drive", "quantity": 2, "price": 129.99, "status": "canceled"},
+                {"id": 9, "item": "Graphics Card", "quantity": 1, "price": 499.99, "status": "completed"},
+                {"id": 10, "item": "Headphones", "quantity": 3, "price": 59.99, "status": "pending"}
+            ],
+            "criterion": "received"
+        },
+        "expected_result": -1
+    },
+    "test_missing_criterion": {
+        "params":{
+            "orders": [
+                {"id": 1, "item": "Computer", "quantity": 2, "price": 999.99, "status": "completed"},
+                {"id": 2, "item": "Printer", "quantity": 1, "price": 149.99, "status": "pending"},
+                {"id": 3, "item": "Monitor", "quantity": 3, "price": 249.99, "status": "completed"},
+                {"id": 4, "item": "Keyboard", "quantity": 5, "price": 49.99, "status": "completed"},
+                {"id": 5, "item": "Mouse", "quantity": 4, "price": 19.99, "status": "received"},
+                {"id": 6, "item": "Laptop", "quantity": 2, "price": 799.99, "status": "canceled"},
+                {"id": 7, "item": "Router", "quantity": 1, "price": 79.99, "status": "pending"},
+                {"id": 8, "item": "External Hard Drive", "quantity": 2, "price": 129.99, "status": "canceled"},
+                {"id": 9, "item": "Graphics Card", "quantity": 1, "price": 499.99, "status": "completed"},
+                {"id": 10, "item": "Headphones", "quantity": 3, "price": 59.99, "status": "pending"}
+            ],
+            "criterion": ""
+        },
+        "expected_result": -1
+    },
+    "test_fonoma_case": {
+        "params":{
+            "orders": [
+                {"id": 1, "item": "Laptop", "quantity": 1, "price": 999.99, "status": "completed"},
+                {"id": 2, "item": "Smartphone", "quantity": 2, "price": 499.95, "status": "pending"},
+                {"id": 3, "item": "Headphones", "quantity": 3, "price": 99.90, "status": "completed"},
+                {"id": 4, "item": "Mouse", "quantity": 4, "price": 24.99, "status": "canceled"}
+            ],
+            "criterion": "completed"
+        },
+        "expected_result": 1299.69
+     }
+}
